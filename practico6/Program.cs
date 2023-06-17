@@ -1,8 +1,29 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
-int a;
-int b;
-a = 10;
-b = a;
-Console.WriteLine($"El valor de a: {a}");
-Console.WriteLine($"El valor de b: {b}");
+﻿int invertir(int num)
+{
+    char[] numArray = num.ToString().ToCharArray();
+    Array.Reverse(numArray);
+    string reverseNum = "";
+    foreach (var numero in numArray)
+    {
+        reverseNum += numero;
+    }
+    return Convert.ToInt32(reverseNum);
+}
+
+//Principal
+int num = 0;
+string sNum;
+do
+{
+    Console.WriteLine("Ingrese el numero a invertir:");
+    sNum = Console.ReadLine();
+} while (!int.TryParse(sNum, out num));
+
+if (num > 0)
+{
+    Console.WriteLine($"Su numero invertido es {invertir(num)}");
+}
+else
+{
+    Console.WriteLine("Ingrese un numero positivo");
+}
